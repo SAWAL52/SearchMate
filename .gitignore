@@ -1,0 +1,35 @@
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+
+# Allow example environment file
+!.env.example
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# IDE settings
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+Desktop.ini
+
+# Log files
+*.log
+
+# Jupyter Notebook
+.ipynb_checkpoints/
