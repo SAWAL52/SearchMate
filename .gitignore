@@ -7,12 +7,6 @@ venv/
 __pycache__/
 *.py[cod]
 
-# Environment variables
-.env
-.env.*
-
-# Allow example environment file
-!.env.example
 
 # Streamlit secrets
 .streamlit/secrets.toml

@@ -1,10 +1,9 @@
-from dotenv import load_dotenv
+
 import streamlit as st
 
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, AIMessage
 
-load_dotenv()
 
 llm = ChatOllama(
     model="llama3.2:3b",
