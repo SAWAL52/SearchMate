@@ -13,7 +13,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 
 st.set_page_config(
-    page_title="Google Search AI Agent",
+    page_title="SearchMate",
     page_icon="🔎",
     layout="centered"
 )
@@ -27,8 +27,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 
-st.title("🔎 Google Search AI Agent")
-st.caption("Ask questions and get answers using Google Search and Groq.")
+st.title("🔎 SearchMate")
+st.caption("An interactive AI assistant built with Groq, LangChain, and LangGraph.")
 
 
 @st.cache_resource
@@ -160,8 +160,7 @@ with st.sidebar:
     st.header("About")
 
     st.write(
-        "This chatbot uses LangChain, Groq and Google Serper "
-        "to search the web and answer questions."
+        "An intelligent conversational assistant powered by LLMs, tools, and conversational memory."
     )
 
     if st.button("Clear Chat"):
