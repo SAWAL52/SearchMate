@@ -1,29 +1,22 @@
+# Environment variables
+.env
+
 # Virtual environments
 env/
 venv/
 .venv/
 
-# Python cache files
+# Python cache
 __pycache__/
 *.py[cod]
 
-
-# Streamlit secrets
+# Streamlit
 .streamlit/secrets.toml
 
-# IDE settings
+# IDE
 .vscode/
 .idea/
 
-# macOS files
+# OS files
 .DS_Store
-
-# Windows files
 Thumbs.db
-Desktop.ini
-
-# Log files
-*.log
-
-# Jupyter Notebook
-.ipynb_checkpoints/

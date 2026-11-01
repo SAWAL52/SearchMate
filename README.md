@@ -1,118 +1,117 @@
-# AI QnA Chatbot
+# Google Search AI Agent
 
-A simple question-and-answer chatbot built using Python, Streamlit, LangChain, and Ollama. The chatbot uses the Llama 3.2 (3B) model to answer questions and keeps track of previous messages during a conversation.
+A web-based chatbot built with Streamlit, LangChain, Groq, and Google Serper. The application uses Groq's `openai/gpt-oss-20b` model to generate responses and Google Search to retrieve information when needed. It also maintains conversation context during a chat session.
 
 ## Features
 
-- Simple chat interface using Streamlit
-- Answers questions using the Llama 3.2 (3B) model
-- Maintains conversation history during the current session
-- Uses LangChain to manage chat messages
-- Runs locally using Ollama
+- Chat interface built with Streamlit.
+- Integration with Groq for language model responses.
+- Google Search integration through Serper API.
+- Automatic tool selection for search queries.
+- Streaming responses.
+- Conversation memory using LangGraph.
+- Response time measurement.
+- Option to clear the conversation.
 
-## Technologies Used
+## Technologies
 
 - Python
 - Streamlit
 - LangChain
-- LangChain Ollama
-- Ollama
-- Llama 3.2 (3B)
+- LangChain Groq
+- LangChain Community
+- LangGraph
+- Google Serper API
+- Groq API
 
 ## Requirements
 
-Before running the project, install the following:
-
 - Python 3.10 or later
-- Ollama
+- Groq API key
+- Serper API key
 
 ## Installation
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd <your-project-folder>
+git clone https://github.com/SAWAL52/Simple_AI_ChatBot.git
+cd Simple_AI_ChatBot
 ```
 
-Replace the repository URL and folder name with your own.
-
-### 2. Create a Virtual Environment
-
-For macOS and Linux:
+### 2. Create and activate a virtual environment
 
 ```bash
 python3 -m venv env
 source env/bin/activate
 ```
 
-For Windows:
+### 3. Install dependencies
 
 ```bash
-python -m venv env
-env\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### 3. Install the Required Packages
+### 4. Set up environment variables
 
-```bash
-pip install streamlit langchain-ollama python-dotenv
+Create a `.env` file in the project root directory and add your API keys:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+SERPER_API_KEY=your_serper_api_key
 ```
 
-### 4. Download the Model
+API keys can be obtained from:
 
-Install Ollama and download the model by running:
+- [Groq Console](https://console.groq.com/)
+- [Serper](https://serper.dev/)
 
-```bash
-ollama pull llama3.2:3b
-```
-
-Make sure Ollama is running before starting the chatbot.
-
-### 5. Run the Application
-
-Run the following command from the project directory:
+### 5. Run the application
 
 ```bash
 streamlit run app.py
 ```
 
-The application will open in your browser. If it does not open automatically, visit:
+The application will be available at `http://localhost:8501`.
 
-http://localhost:8501
+## How It Works
+
+1. The user enters a question through the Streamlit interface.
+2. The question is passed to the LangChain agent.
+3. The agent determines whether external information is required.
+4. If a search is needed, it uses Google Serper to retrieve relevant results.
+5. Groq generates a response based on the available information.
+6. LangGraph maintains conversation context using a thread ID.
+7. The response is displayed incrementally, along with the response time.
 
 ## Project Structure
 
 ```text
-AI-QnA-Chatbot/
+Simple_AI_ChatBot/
 ├── app.py
 ├── README.md
+├── requirements.txt
+├── .env.example
 └── .gitignore
 ```
 
-## How It Works
-
-The application takes questions through the Streamlit chat interface and sends them to the Llama 3.2 model through Ollama.
-
-It stores user messages and chatbot responses in Streamlit session state. Before generating a new response, the previous messages are converted into LangChain message objects and passed to the model. This allows the chatbot to use the conversation history when answering follow-up questions.
-
-The conversation remains available during the active session but is not saved permanently.
-
 ## Limitations
 
-- Ollama must be installed and running locally.
-- The Llama 3.2 (3B) model must be downloaded before use.
-- Response speed depends on the computer's hardware.
-- The chatbot does not store conversations after the session ends.
-- Responses may not always be accurate.
+- An active internet connection is required.
+- Valid Groq and Serper API keys are required.
+- Search functionality depends on Serper API availability.
+- Response time varies depending on network conditions, search operations, and model processing.
+- Conversation memory is stored in memory and is not retained after the application process restarts.
+- Generated responses may contain inaccurate information.
 
 ## Future Improvements
 
-- Add an option to clear the conversation.
-- Display responses as they are generated.
-- Allow users to select different models.
-- Save chat history for later use.
+- Display source links for search results.
+- Support additional language models.
+- Allow users to export conversations.
+- Implement persistent conversation storage.
+- Improve error handling and search result presentation.
 
 ## License
 
-This project was developed for learning and practice purposes.
+This project is intended for learning and development purposes.
